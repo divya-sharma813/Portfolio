@@ -32,10 +32,6 @@
   --grid-line: rgba(228, 225, 225, 0.72);
   --border: var(--neutral-300);
 
-  /* Two-font rule: Cormorant Garamond for headings, Public Sans for everything else. */
-  --font-heading: var(--font-cormorant), serif;
-  --font-body: var(--font-public-sans), sans-serif;
-
   --type-display-size: 64px;
   --type-display-leading: 0.9;
   --type-heading-size: 32px;
@@ -71,8 +67,15 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+html::-webkit-scrollbar { display: none; }
 body {
+  /* next/font variables are attached here, so the aliases must resolve here too. */
+  --font-heading: var(--font-cormorant), serif;
+  --font-body: var(--font-public-sans), sans-serif;
   margin: 0;
   background: var(--paper);
   color: var(--ink);
@@ -109,7 +112,7 @@ a { color: inherit; }
 .wordmark {
   font-family: var(--font-heading);
   font-size: 24px;
-  font-weight: 600;
+  font-weight: 400;
   line-height: 24px;
   text-decoration: none;
 }
@@ -121,8 +124,8 @@ a { color: inherit; }
   align-items: center;
   justify-content: center;
   gap: 10px;
-  background: var(--action-primary);
-  color: var(--neutral-0);
+  background: var(--accent-butter);
+  color: var(--neutral-900);
   font-size: var(--type-small-size);
   line-height: var(--type-small-leading);
   text-decoration: none;
@@ -166,7 +169,7 @@ a { color: inherit; }
   line-height: var(--type-body-lg-leading);
   letter-spacing: -0.18px;
 }
-.companies { width: 586px; margin: 113px 0 0 13px; }
+.companies { width: 586px; margin: 113px 0 0; }
 .companies > p { margin: 0 0 15px; color: var(--neutral-600); font-size: var(--type-body-size); line-height: var(--type-body-leading); }
 .company-tray {
   width: fit-content;
@@ -411,8 +414,8 @@ a { color: inherit; }
 
 @media (hover: hover) {
   .resume-link:hover {
-    background: var(--accent-butter);
-    color: var(--neutral-900);
+    background: var(--action-primary);
+    color: var(--neutral-0);
     transform: translateY(-2px);
   }
   .project-card:hover {

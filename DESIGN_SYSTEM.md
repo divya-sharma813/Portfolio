@@ -42,7 +42,7 @@ The Studio Think reference informs the editorial balance: warm paper, visible gr
 - **Lilac:** `#D9CCFF`, **Sky:** `#CCEEFF`, **Mint:** `#CFEEDA`. Optional project/category accents only.
 - **Positive status:** `#42C975` with deep ring `#214D32`.
 
-Never use multiple bright accents on the same control. Accent color should not replace black for the primary action state.
+Never use multiple bright accents on the same control. Black remains the primary action color; the peach Resume action is the deliberate editorial exception established by the Figma design.
 
 ## Typography
 
