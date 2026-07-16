@@ -98,6 +98,15 @@ Use a 4px base rhythm: `4, 8, 12, 16, 20, 24, 32, 40, 48, 64, 80, 96`.
 - Focus must always use a visible 2px outline with a 3px offset.
 - Respect reduced-motion preferences and never use continuous decorative animation.
 
+### Immersive notebook transition
+
+- The Hero and first Selected Project share one notebook plane on desktop.
+- The first viewport must remain a clean, motionless Figma state.
+- Scroll lifts the plane to a maximum `7°` tilt, travels diagonally toward the lower-left project position, then settles flat again.
+- The transition uses approximately `180vh` of scroll distance with a lightly smoothed scrub.
+- Content remains real HTML; only the shared world, opacity, and scale are animated.
+- Mobile and reduced-motion experiences use the normal vertical document flow with no pinning or perspective travel.
+
 ## Component rules
 
 ### Section title block

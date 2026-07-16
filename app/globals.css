@@ -94,6 +94,26 @@ a { color: inherit; }
   background-size: 77.49px 77.88px;
 }
 
+.immersive-journey,
+.journey-viewport,
+.notebook-world {
+  position: relative;
+}
+.journey-viewport { background: var(--paper); }
+.notebook-world { transform-style: preserve-3d; }
+.journey-ambient { display: none; }
+.journey-projects,
+.journey-projects .projects-canvas { min-height: 832px; }
+
+.projects-tail,
+.projects-tail-canvas { min-height: 1000px; }
+.projects-tail-canvas {
+  width: min(1280px, 100%);
+  margin: 0 auto;
+  position: relative;
+}
+.projects-tail .project-card--two { top: 230px; }
+
 .hero, .projects, .snippets, .contact { overflow: hidden; }
 .hero-canvas, .projects-canvas, .snippets-canvas, .contact-canvas {
   width: min(1280px, 100%);
@@ -264,6 +284,76 @@ a { color: inherit; }
   background: var(--neutral-200);
 }
 .section-rail span { display: block; width: 2px; height: 78px; border-radius: 100px; background: var(--neutral-900); }
+
+@media (min-width: 901px) {
+  .immersive-journey.is-enhanced {
+    min-height: 100vh;
+    background: #efebe6;
+  }
+  .is-enhanced .journey-viewport {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    perspective: 1400px;
+    perspective-origin: 50% 48%;
+    background:
+      radial-gradient(circle at 14% 18%, rgba(217, 204, 255, 0.2), transparent 32%),
+      radial-gradient(circle at 83% 76%, rgba(255, 227, 177, 0.3), transparent 34%),
+      #efebe6;
+  }
+  .is-enhanced .notebook-world {
+    position: absolute;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    transform-style: preserve-3d;
+    will-change: transform;
+  }
+  .is-enhanced .notebook-world::before {
+    content: "";
+    position: absolute;
+    top: -90vh;
+    right: -80vw;
+    bottom: -180vh;
+    left: -80vw;
+    border: 1px solid rgba(203, 203, 203, 0.65);
+    background-color: var(--paper);
+    background-image:
+      linear-gradient(var(--grid-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+    background-position: center -1px;
+    background-size: 77.49px 77.88px;
+    box-shadow: 0 72px 150px rgba(46, 45, 45, 0.18);
+    transform: translateZ(-3px);
+  }
+  .is-enhanced .journey-ambient {
+    position: absolute;
+    z-index: 4;
+    inset: -18%;
+    display: block;
+    pointer-events: none;
+    background:
+      radial-gradient(circle at 20% 24%, rgba(217, 204, 255, 0.42), transparent 28%),
+      radial-gradient(circle at 78% 70%, rgba(255, 227, 177, 0.5), transparent 30%),
+      radial-gradient(circle at 58% 22%, rgba(204, 239, 255, 0.24), transparent 23%);
+    filter: blur(68px);
+    will-change: transform, opacity;
+  }
+  .is-enhanced .journey-hero,
+  .is-enhanced .journey-projects {
+    position: absolute;
+    inset: 0;
+    min-height: 100vh;
+    overflow: visible;
+    background: none;
+    will-change: transform, opacity;
+  }
+  .is-enhanced .journey-hero .hero-canvas,
+  .is-enhanced .journey-projects .projects-canvas {
+    min-height: 100vh;
+  }
+  .is-enhanced .journey-projects { visibility: hidden; }
+}
 
 .snippets { background-color: var(--paper-warm); }
 .snippets-title-box {
@@ -450,6 +540,10 @@ a { color: inherit; }
   .project-visual { height: auto; aspect-ratio: 911 / 294; border-radius: 14px; }
   .project-copy, .project-copy p { width: 100%; }
   .section-rail { display: none; }
+  .projects-tail,
+  .projects-tail-canvas { min-height: auto; }
+  .projects-tail-canvas { padding: 48px 16px 96px; }
+  .projects-tail .project-card--two { position: relative; inset: auto; }
   .snippets, .snippets-canvas { min-height: auto; }
   .snippets-canvas { padding: 48px 16px 72px; }
   .snippets-title-box { position: relative; inset: auto; width: fit-content; height: auto; padding: 30px; }
