@@ -1,10 +1,6 @@
 import type { Metadata } from "next";
 import { headers } from "next/headers";
-import {
-  Cormorant_Garamond,
-  Libertinus_Serif_Display,
-  Public_Sans,
-} from "next/font/google";
+import { Cormorant_Garamond, Public_Sans } from "next/font/google";
 import "./globals.css";
 
 const publicSans = Public_Sans({
@@ -17,13 +13,6 @@ const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
   subsets: ["latin"],
   weight: ["400", "600", "700"],
-  display: "swap",
-});
-
-const libertinus = Libertinus_Serif_Display({
-  variable: "--font-libertinus",
-  subsets: ["latin"],
-  weight: "400",
   display: "swap",
 });
 
@@ -68,7 +57,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${publicSans.variable} ${cormorant.variable} ${libertinus.variable}`}>
+      <body className={`${publicSans.variable} ${cormorant.variable}`}>
         {children}
       </body>
     </html>
