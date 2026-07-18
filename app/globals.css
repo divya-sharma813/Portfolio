@@ -125,11 +125,15 @@ a { color: inherit; }
 
 .hero, .hero-canvas { min-height: 832px; }
 .site-header {
-  height: 87px;
+  position: relative;
+  left: 50%;
+  width: 100vw;
+  height: 84px;
   padding: 24px 32px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  transform: translateX(-50%);
 }
 .wordmark {
   font-family: var(--font-heading);
@@ -527,7 +531,7 @@ a { color: inherit; }
 @media (max-width: 900px) {
   :root { --grid-size: 44px; }
   .hero, .hero-canvas { min-height: 780px; }
-  .site-header { height: 72px; padding: 0 20px; }
+  .site-header { height: 84px; padding: 24px 32px; }
   .hero-content { width: calc(100% - 40px); margin-top: 112px; }
   .intro-copy h1 { font-size: 30px; }
   .intro-copy p { font-size: 17px; line-height: 25px; }
