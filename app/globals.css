@@ -158,12 +158,13 @@ a { color: inherit; }
 .email-button:focus-visible { outline-color: var(--accent-butter); }
 .ui-icon,
 .social-icon { flex: none; }
-.hero-content { width: 612px; margin: 139px auto 0; }
-.intro-copy {
+.hero-content {
   position: relative;
   isolation: isolate;
+  width: 612px;
+  margin: 139px auto 0;
 }
-.intro-copy::before {
+.hero-content::before {
   content: "";
   position: absolute;
   z-index: 0;
@@ -182,7 +183,7 @@ a { color: inherit; }
   );
   transform: translate(-50%, -50%);
 }
-.intro-copy > * { position: relative; z-index: 1; }
+.hero-content > * { position: relative; z-index: 1; }
 .intro-copy h1 {
   margin: 0 0 20px;
   color: var(--neutral-800);
@@ -201,7 +202,7 @@ a { color: inherit; }
   letter-spacing: -0.18px;
 }
 .companies { position: relative; z-index: 2; width: 586px; margin: 113px 0 0; }
-.companies > p { margin: 0 0 15px; color: var(--neutral-600); font-size: var(--type-body-size); line-height: var(--type-body-leading); opacity: 1; }
+.companies > p { margin: 0 0 15px; color: #565a5e; font-size: var(--type-body-size); line-height: var(--type-body-leading); opacity: 1; }
 .company-tray {
   width: fit-content;
   padding: 12px;
