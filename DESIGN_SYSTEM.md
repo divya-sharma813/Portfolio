@@ -131,6 +131,8 @@ Small colored indicator paired with plain-language text. Never rely on color alo
 
 Resting tiles use a light neutral surface and low-opacity dot texture. Hover activates one brand-led background color, a subtle white edge, a soft layered shadow, and a small lift. Fade the texture out and the logo to white over roughly `500ms` using the spatial easing curve; avoid abrupt color swaps.
 
+Each tile also reveals a compact experience tooltip above the card on hover or keyboard focus. Tooltips use a white neutral surface, a serif summary, a small brand marker, and soft shadow. Keep the summary concise enough to scan without interacting with the panel.
+
 ## Writing and content tone
 
 Confident, specific, and curious. Prefer concrete outcomes and design decisions over generic claims such as “passionate” or “pixel-perfect.” Keep project descriptions to one clear sentence on the homepage.
