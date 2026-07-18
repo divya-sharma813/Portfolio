@@ -29,9 +29,9 @@
   --ink: var(--neutral-800);
   --title: var(--neutral-900);
   --muted: var(--neutral-500);
-  --grid-line: rgba(228, 225, 225, 0.48);
+  --grid-line: rgba(228, 225, 225, 0.36);
   --grid-size: 56px;
-  --grid-stroke: 0.5px;
+  --grid-stroke: 1px;
   --border: var(--neutral-300);
 
   --type-display-size: 64px;
@@ -174,8 +174,8 @@ a { color: inherit; }
   pointer-events: none;
   background: radial-gradient(
     ellipse at center,
-    rgba(255, 255, 255, 1) 0 20%,
-    rgba(255, 255, 255, 0.94) 36%,
+    rgba(255, 255, 255, 0.9) 0 20%,
+    rgba(255, 255, 255, 0.84) 36%,
     rgba(255, 255, 255, 0.7) 51%,
     rgba(255, 255, 255, 0.3) 65%,
     rgba(255, 255, 255, 0) 79%

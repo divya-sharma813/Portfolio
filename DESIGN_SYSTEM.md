@@ -65,7 +65,7 @@ Use sentence case. Avoid all caps except for tiny metadata when genuinely useful
 ## Grid and layout
 
 - Desktop canvas: `1280px` maximum width.
-- Main light grid: `56 × 56px` cells with low-contrast, `0.5px` Neutral 200 hairlines.
+- Main light grid: `56 × 56px` cells with reliable `1px`, low-opacity Neutral 200 hairlines.
 - Dark footer grid: `80 × 80px` cells with reduced-opacity white lines.
 - Primary project content width: approximately `960px`.
 - Align key edges to grid lines or half-grid positions.
