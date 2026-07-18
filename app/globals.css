@@ -126,7 +126,7 @@ a { color: inherit; }
 .hero, .hero-canvas { min-height: 832px; }
 .site-header {
   height: 87px;
-  padding: 0 32px;
+  padding: 24px 32px;
   display: flex;
   align-items: center;
   justify-content: space-between;
