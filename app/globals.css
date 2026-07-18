@@ -223,7 +223,7 @@ a { color: inherit; }
   display: grid;
   place-items: center;
   overflow: hidden;
-  background-color: var(--neutral-0);
+  background-color: color-mix(in srgb, var(--neutral-0) 70%, var(--neutral-200));
   background-image: radial-gradient(color-mix(in srgb, var(--neutral-500) 13%, transparent) 0.7px, transparent 0.7px);
   background-size: 5.1px 5.1px;
   opacity: 0.8;
