@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { ArrowUpRight, Check, Copy, Eye } from "@phosphor-icons/react";
 
 const EMAIL = "divysharma187@gmail.com";
 
@@ -52,25 +53,28 @@ export default function Home() {
             scale: 1,
             rotationX: 0,
             rotationZ: 0,
+            force3D: true,
             transformOrigin: "50% 50%",
           });
           gsap.set(projects, {
             x: "-42vw",
             y: "108vh",
             z: 1,
-            scale: 0.78,
-            autoAlpha: 0.42,
+            scale: 0.84,
+            autoAlpha: 0.36,
+            force3D: true,
           });
-          gsap.set(ambient, { autoAlpha: 0.08, xPercent: 0, yPercent: 0 });
+          gsap.set(hero, { force3D: true });
+          gsap.set(ambient, { autoAlpha: 0.06 });
 
           const timeline = gsap.timeline({
-            defaults: { ease: "none" },
+            defaults: { ease: "power1.inOut" },
             scrollTrigger: {
               trigger: journey,
               pin: viewport,
               start: "top top",
-              end: "+=180%",
-              scrub: 0.6,
+              end: "+=220%",
+              scrub: 1.05,
               anticipatePin: 1,
               invalidateOnRefresh: true,
             },
@@ -78,39 +82,40 @@ export default function Home() {
 
           timeline
             .to(world, {
-              rotationX: 7,
-              rotationZ: -2.5,
-              scale: 0.92,
-              duration: 0.18,
+              rotationX: 5.5,
+              rotationZ: -1.8,
+              scale: 0.95,
+              duration: 0.22,
               ease: "power1.inOut",
             })
             .to(
               ambient,
-              { autoAlpha: 0.42, xPercent: 5, yPercent: -3, duration: 0.18 },
+              { autoAlpha: 0.3, duration: 0.22 },
               0,
             )
             .to(world, {
               x: "42vw",
               y: "-108vh",
-              rotationX: 4,
-              rotationZ: 1.2,
-              scale: 0.96,
-              duration: 0.56,
+              rotationX: 3,
+              rotationZ: 0.8,
+              scale: 0.98,
+              duration: 0.62,
+              ease: "power1.inOut",
             })
-            .to(hero, { autoAlpha: 0.12, duration: 0.35, ease: "power1.out" }, 0.22)
+            .to(hero, { autoAlpha: 0.08, duration: 0.4, ease: "power1.out" }, 0.24)
             .to(
               projects,
-              { scale: 1, autoAlpha: 1, duration: 0.56 },
-              0.18,
+              { scale: 1, autoAlpha: 1, duration: 0.62, ease: "power1.inOut" },
+              0.2,
             )
             .to(world, {
               rotationX: 0,
               rotationZ: 0,
               scale: 1,
-              duration: 0.26,
+              duration: 0.3,
               ease: "power2.out",
             })
-            .to(ambient, { autoAlpha: 0.12, duration: 0.26 }, "<");
+            .to(ambient, { autoAlpha: 0.08, duration: 0.3, ease: "power2.out" }, "<");
 
           return () => {
             journey.classList.remove("is-enhanced");
@@ -145,7 +150,7 @@ export default function Home() {
                 <header className="site-header">
                   <a className="wordmark" href="#top" aria-label="Divya Sharma, home">Divya</a>
                   <a className="resume-link" href={`mailto:${EMAIL}?subject=Resume request`} aria-label="Request Divya Sharma's resume">
-                    <span className="eye-icon" aria-hidden="true" />
+                    <Eye className="ui-icon" size={18} weight="regular" aria-hidden="true" />
                     See Resume
                   </a>
                 </header>
@@ -239,13 +244,15 @@ export default function Home() {
             <div className="contact-actions">
               <div className="availability"><span aria-hidden="true" />Open for work</div>
               <button className="email-button" type="button" onClick={copyEmail}>
-                <span className="copy-icon" aria-hidden="true" />
+                {copied
+                  ? <Check className="ui-icon" size={20} weight="regular" aria-hidden="true" />
+                  : <Copy className="ui-icon" size={20} weight="regular" aria-hidden="true" />}
                 {copied ? "Email copied" : EMAIL}
               </button>
             </div>
             <nav className="socials" aria-label="Social links">
-              <span>Linkedin <b aria-hidden="true">↗</b></span>
-              <span>X <b aria-hidden="true">↗</b></span>
+              <span>Linkedin <ArrowUpRight className="social-icon" size={18} weight="light" aria-hidden="true" /></span>
+              <span>X <ArrowUpRight className="social-icon" size={18} weight="light" aria-hidden="true" /></span>
             </nav>
           </div>
         </div>

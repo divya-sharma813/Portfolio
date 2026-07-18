@@ -65,11 +65,11 @@ Use sentence case. Avoid all caps except for tiny metadata when genuinely useful
 ## Grid and layout
 
 - Desktop canvas: `1280px` maximum width.
-- Main light grid: approximately `78 × 78px` cells.
-- Dark footer grid: `96 × 96px` cells.
+- Main light grid: `64 × 64px` cells with low-contrast Neutral 200 lines.
+- Dark footer grid: `80 × 80px` cells with reduced-opacity white lines.
 - Primary project content width: approximately `960px`.
 - Align key edges to grid lines or half-grid positions.
-- On smaller screens, reduce the grid to `56 × 56px` and preserve the same hierarchy rather than the same absolute coordinates.
+- On smaller screens, reduce the grid to `48 × 48px` and preserve the same hierarchy rather than the same absolute coordinates.
 - Let whitespace remain visible. Empty grid cells are intentional breathing room.
 
 ## Spacing
@@ -97,14 +97,16 @@ Use a 4px base rhythm: `4, 8, 12, 16, 20, 24, 32, 40, 48, 64, 80, 96`.
 - Image hover may scale to a maximum of `1.012`.
 - Focus must always use a visible 2px outline with a 3px offset.
 - Respect reduced-motion preferences and never use continuous decorative animation.
+- All interface icons come from the Phosphor icon family in regular or light weights; do not redraw them in CSS.
 
 ### Immersive notebook transition
 
 - The Hero and first Selected Project share one notebook plane on desktop.
 - The first viewport must remain a clean, motionless Figma state.
-- Scroll lifts the plane to a maximum `7°` tilt, travels diagonally toward the lower-left project position, then settles flat again.
-- The transition uses approximately `180vh` of scroll distance with a lightly smoothed scrub.
+- Scroll lifts the plane to a maximum `5.5°` tilt, travels diagonally toward the lower-left project position, then settles flat again.
+- The transition uses approximately `220vh` of scroll distance with a one-second smoothed scrub.
 - Content remains real HTML; only the shared world, opacity, and scale are animated.
+- Keep the ambient wash gradient-based rather than filter-blurred so the notebook plane remains inexpensive to composite.
 - Mobile and reduced-motion experiences use the normal vertical document flow with no pinning or perspective travel.
 
 ## Component rules
