@@ -169,7 +169,7 @@ export default function Home() {
                     <p id="companies-title">Previously Worked at</p>
                     <div className="company-tray">
                       {companies.map((company) => (
-                        <div className="company-card" key={company.name}>
+                        <div className={`company-card company-card--${company.className}`} key={company.name}>
                           <img className={company.className} src={company.src} alt={company.name} />
                         </div>
                       ))}

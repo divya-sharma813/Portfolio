@@ -216,20 +216,53 @@ a { color: inherit; }
   background: var(--neutral-0);
 }
 .company-card {
+  --company-active: var(--neutral-900);
   width: 160px;
   height: 160px;
   border: 0.851px solid var(--neutral-200);
   border-radius: 20.426px;
+  position: relative;
   display: grid;
   place-items: center;
   overflow: hidden;
   background-color: color-mix(in srgb, var(--neutral-0) 70%, var(--neutral-200));
+  opacity: 0.8;
+  transform: translateZ(0);
+  transition:
+    background-color 520ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 520ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+.company-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
   background-image: radial-gradient(color-mix(in srgb, var(--neutral-500) 13%, transparent) 0.7px, transparent 0.7px);
   background-size: 5.1px 5.1px;
-  opacity: 0.8;
+  opacity: 1;
+  transition: opacity 360ms cubic-bezier(0.22, 1, 0.36, 1);
 }
+.company-card--flipkart { --company-active: #3b9df5; }
+.company-card--mpl { --company-active: #f23b55; }
+.company-card--gallerie { --company-active: #343330; }
 .company-card:first-child { width: 164px; height: 164px; margin: -2px 0; }
-.company-card img { display: block; object-fit: contain; filter: grayscale(1); mix-blend-mode: luminosity; opacity: 0.92; }
+.company-card img {
+  position: relative;
+  z-index: 1;
+  display: block;
+  object-fit: contain;
+  filter: grayscale(1);
+  mix-blend-mode: luminosity;
+  opacity: 0.92;
+  transition:
+    filter 460ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 360ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
+}
 .company-card .flipkart { width: 112px; height: 112px; }
 .company-card .mpl { width: 76px; max-height: 26px; }
 .company-card .gallerie { width: 104px; max-height: 34px; }
@@ -514,6 +547,23 @@ a { color: inherit; }
     background: var(--action-primary);
     color: var(--neutral-0);
     transform: translateY(-2px);
+  }
+  .company-card:hover {
+    border-color: rgba(255, 255, 255, 0.86);
+    background-color: var(--company-active);
+    box-shadow:
+      0 22px 52px rgba(33, 33, 33, 0.16),
+      0 6px 16px rgba(33, 33, 33, 0.1),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.34);
+    opacity: 1;
+    transform: translateY(-6px) scale(1.025) translateZ(0);
+  }
+  .company-card:hover::before { opacity: 0; }
+  .company-card:hover img {
+    filter: grayscale(1) brightness(0) invert(1);
+    mix-blend-mode: normal;
+    opacity: 1;
+    transform: scale(1.045);
   }
   .project-card:hover {
     border-color: var(--neutral-900);

@@ -127,6 +127,10 @@ Black fill, white label, compact dimensions, direct language. Butter is an inter
 
 Small colored indicator paired with plain-language text. Never rely on color alone.
 
+### Company logo tile
+
+Resting tiles use a light neutral surface and low-opacity dot texture. Hover activates one brand-led background color, a subtle white edge, a soft layered shadow, and a small lift. Fade the texture out and the logo to white over roughly `500ms` using the spatial easing curve; avoid abrupt color swaps.
+
 ## Writing and content tone
 
 Confident, specific, and curious. Prefer concrete outcomes and design decisions over generic claims such as “passionate” or “pixel-perfect.” Keep project descriptions to one clear sentence on the homepage.
