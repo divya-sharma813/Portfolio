@@ -65,11 +65,11 @@ Use sentence case. Avoid all caps except for tiny metadata when genuinely useful
 ## Grid and layout
 
 - Desktop canvas: `1280px` maximum width.
-- Main light grid: `64 × 64px` cells with low-contrast Neutral 200 lines.
+- Main light grid: `56 × 56px` cells with low-contrast Neutral 200 lines.
 - Dark footer grid: `80 × 80px` cells with reduced-opacity white lines.
 - Primary project content width: approximately `960px`.
 - Align key edges to grid lines or half-grid positions.
-- On smaller screens, reduce the grid to `48 × 48px` and preserve the same hierarchy rather than the same absolute coordinates.
+- On smaller screens, reduce the grid to `44 × 44px` and preserve the same hierarchy rather than the same absolute coordinates.
 - Let whitespace remain visible. Empty grid cells are intentional breathing room.
 
 ## Spacing
