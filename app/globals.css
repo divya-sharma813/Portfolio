@@ -711,7 +711,7 @@ a { color: inherit; }
   }
   .project-card:hover {
     background-color: #ffffff;
-    transform: scale(1.25);
+    transform: scale(1.1);
   }
   .snippet-crop:hover img { transform: scale(1.012); }
   .email-button:hover {
