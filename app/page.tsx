@@ -8,21 +8,18 @@ const EMAIL = "divysharma187@gmail.com";
 const companies = [
   {
     name: "Flipkart",
-    badge: "F",
     src: "/assets/company-1.png",
     className: "flipkart",
     summary: "Designed and scaled FireDrops. Built the Reward Store NFT marketplace, and led design revamps with a focus on product thinking, experience design, and micro-animations.",
   },
   {
     name: "MPL",
-    badge: "M",
     src: "/assets/company-2.png",
     className: "mpl",
     summary: "Contributed to the product's design from alpha testing through public launch, shaping the end-to-end user experience. Designed and improved the referral system, first-time user experience, profile setup, and other core flows.",
   },
   {
     name: "Gallerie5",
-    badge: "G5",
     src: "/assets/company-3.png",
     className: "gallerie",
     summary: "Helped shape early product concepts and interface directions across emerging user journeys. Detailed project contributions and outcomes will be added soon.",
@@ -197,12 +194,8 @@ export default function Home() {
                         >
                           <img className={company.className} src={company.src} alt={company.name} />
                           <div className="company-tooltip" id={`${company.className}-experience`} role="tooltip">
-                            <p>{company.summary}</p>
-                            <div className="company-tooltip-meta">
-                              <span className="company-tooltip-badge" aria-hidden="true">{company.badge}</span>
-                              <span className="company-tooltip-rule" aria-hidden="true" />
-                              <span>{company.name} · Product design</span>
-                            </div>
+                            <p className="company-tooltip-summary">{company.summary}</p>
+                            <p className="company-tooltip-company">{company.name}</p>
                           </div>
                         </div>
                       ))}

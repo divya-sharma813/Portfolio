@@ -129,9 +129,9 @@ Small colored indicator paired with plain-language text. Never rely on color alo
 
 ### Company logo tile
 
-Resting tiles use a light neutral surface and low-opacity dot texture. Hover activates one brand-led background color, a subtle white edge, a soft layered shadow, and a small lift. Fade the texture out and the logo to white over roughly `500ms` using the spatial easing curve; avoid abrupt color swaps.
+Resting tiles use a light neutral surface and low-opacity dot texture. Hover activates a brand-led vertical gradient, a subtle white edge, a soft shadow, and a restrained lift. Fade the texture out and the logo to white over roughly `400–500ms` using the spatial easing curve; avoid abrupt color swaps.
 
-Each tile also reveals a compact experience tooltip above the card on hover or keyboard focus. Tooltips use a white neutral surface, a serif summary, a small brand marker, and soft shadow. Keep the summary concise enough to scan without interacting with the panel.
+Each tile reveals an experience tooltip below the card on hover or keyboard focus. Tooltips use a `417px` white surface, `24px` padding, a `16px` radius, a subtle border, and a soft single shadow. Use Public Sans for both the `16px/24px` summary and muted `18px/26px` company label. Keep the summary concise enough to scan without interacting with the panel.
 
 ## Writing and content tone
 
