@@ -9,20 +9,23 @@ const companies = [
   {
     name: "Flipkart",
     src: "/assets/company-1.png",
+    activeSrc: "/assets/company-flipkart-active.png",
     className: "flipkart",
-    summary: "Designed and scaled FireDrops. Built the Reward Store NFT marketplace, and led design revamps with a focus on product thinking, experience design, and micro-animations.",
+    summary: "Designed FireDrops, a Web3-powered brand loyalty platform that rewarded users for engaging with their favorite brands",
   },
   {
     name: "MPL",
     src: "/assets/company-2.png",
+    activeSrc: "/assets/company-2.png",
     className: "mpl",
-    summary: "Contributed to the product's design from alpha testing through public launch, shaping the end-to-end user experience. Designed and improved the referral system, first-time user experience, profile setup, and other core flows.",
+    summary: "Created the first-time user experience, referral system, and key gaming interactions for Monkey Pay, MPL's new gaming platform",
   },
   {
-    name: "Gallerie5",
+    name: "Galleri5",
     src: "/assets/company-3.png",
+    activeSrc: "/assets/company-gallerie-active.png",
     className: "gallerie",
-    summary: "Helped shape early product concepts and interface directions across emerging user journeys. Detailed project contributions and outcomes will be added soon.",
+    summary: "Redesigned an AI creative studio, making complex movie and microdrama creation easier for creators.",
   },
 ];
 
@@ -192,7 +195,8 @@ export default function Home() {
                           aria-label={`${company.name} experience summary`}
                           aria-describedby={`${company.className}-experience`}
                         >
-                          <img className={company.className} src={company.src} alt={company.name} />
+                          <img className={`company-logo company-logo--resting ${company.className}`} src={company.src} alt={company.name} />
+                          <img className={`company-logo company-logo--active ${company.className}`} src={company.activeSrc} alt="" aria-hidden="true" />
                           <div className="company-tooltip" id={`${company.className}-experience`} role="tooltip">
                             <p className="company-tooltip-summary">{company.summary}</p>
                             <p className="company-tooltip-company">{company.name}</p>

@@ -240,13 +240,13 @@ a { color: inherit; }
 .company-card::before {
   content: "";
   position: absolute;
+  z-index: 1;
   inset: 0;
   pointer-events: none;
-  background-image: radial-gradient(color-mix(in srgb, var(--neutral-500) 13%, transparent) 0.7px, transparent 0.7px);
-  background-size: 5.1px 5.1px;
+  background-image: radial-gradient(rgba(33, 33, 33, 0.12) 0.72px, transparent 0.78px);
+  background-size: 4.5px 4.5px;
   border-radius: inherit;
   opacity: 1;
-  transition: opacity 300ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 .company-card::after {
   content: "";
@@ -268,25 +268,35 @@ a { color: inherit; }
   --company-active-end: #c61636;
 }
 .company-card--gallerie {
-  --company-active-start: #5a5854;
-  --company-active-end: #292825;
+  --company-active-start: #2d2d2d;
+  --company-active-end: #1f1f1f;
 }
-.company-card > img {
-  position: relative;
-  z-index: 1;
+.company-logo {
+  position: absolute;
+  z-index: 2;
   display: block;
   object-fit: contain;
+  transition:
+    opacity 300ms ease-out,
+    transform 460ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.company-logo--resting {
   filter: grayscale(1);
   mix-blend-mode: luminosity;
   opacity: 0.92;
-  transition:
-    filter 460ms cubic-bezier(0.22, 1, 0.36, 1),
-    opacity 360ms cubic-bezier(0.22, 1, 0.36, 1),
-    transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
 }
-.company-card .flipkart { width: 112px; height: 112px; }
-.company-card .mpl { width: 76px; max-height: 26px; }
-.company-card .gallerie { width: 104px; max-height: 34px; }
+.company-logo--active {
+  mix-blend-mode: normal;
+  opacity: 0;
+  transform: scale(0.96);
+}
+.company-logo--resting.flipkart { width: 112px; height: 112px; }
+.company-logo--active.flipkart { width: 117px; height: 31px; }
+.company-logo--resting.mpl,
+.company-logo--active.mpl { width: 76px; height: 26px; }
+.company-logo--active.mpl { filter: grayscale(1) brightness(0) invert(1); }
+.company-logo--resting.gallerie { width: 104px; height: 34px; }
+.company-logo--active.gallerie { width: 98px; height: 31px; }
 .company-tooltip {
   --tooltip-x: -50%;
   position: absolute;
@@ -319,17 +329,17 @@ a { color: inherit; }
 .company-tooltip-summary {
   margin: 0;
   color: #414141;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400;
-  line-height: 24px;
-  letter-spacing: -0.16px;
+  line-height: 20px;
+  letter-spacing: -0.14px;
 }
 .company-tooltip-company {
   margin: auto 0 0;
   color: #b3b3b3;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
-  line-height: 26px;
+  line-height: 22px;
 }
 .company-card:first-child .company-tooltip { --tooltip-x: 0; left: 0; }
 .company-card:last-child .company-tooltip { --tooltip-x: 0; right: 0; left: auto; }
@@ -343,14 +353,9 @@ a { color: inherit; }
   opacity: 1;
   transform: translateY(-4px) scale(1.012) translateZ(0);
 }
-.company-card:focus-visible::before { opacity: 0; }
 .company-card:focus-visible::after { opacity: 1; }
-.company-card:focus-visible > img {
-  filter: grayscale(1) brightness(0) invert(1);
-  mix-blend-mode: normal;
-  opacity: 1;
-  transform: scale(1.025);
-}
+.company-card:focus-visible .company-logo--resting { opacity: 0; transform: scale(0.98); }
+.company-card:focus-visible .company-logo--active { opacity: 1; transform: scale(1); }
 .company-card:focus-visible .company-tooltip {
   opacity: 1;
   visibility: visible;
@@ -647,14 +652,9 @@ a { color: inherit; }
     opacity: 1;
     transform: translateY(-4px) scale(1.012) translateZ(0);
   }
-  .company-card:hover::before { opacity: 0; }
   .company-card:hover::after { opacity: 1; }
-  .company-card:hover > img {
-    filter: grayscale(1) brightness(0) invert(1);
-    mix-blend-mode: normal;
-    opacity: 1;
-    transform: scale(1.025);
-  }
+  .company-card:hover .company-logo--resting { opacity: 0; transform: scale(0.98); }
+  .company-card:hover .company-logo--active { opacity: 1; transform: scale(1); }
   .company-card:hover { z-index: 5; }
   .company-card:hover .company-tooltip {
     opacity: 1;
