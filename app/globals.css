@@ -515,6 +515,11 @@ a { color: inherit; }
     backface-visibility: visible;
     will-change: auto;
   }
+  .immersive-journey.is-settled .journey-hero {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none;
+  }
   .is-enhanced .journey-hero .hero-canvas,
   .is-enhanced .journey-projects .projects-canvas {
     min-height: 100vh;

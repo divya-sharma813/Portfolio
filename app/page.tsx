@@ -123,7 +123,7 @@ export default function Home() {
               duration: 0.62,
               ease: "power1.inOut",
             })
-            .to(hero, { autoAlpha: 0.08, duration: 0.4, ease: "power1.out" }, 0.24)
+            .to(hero, { autoAlpha: 0, duration: 0.4, ease: "power1.out" }, 0.24)
             .to(
               projects,
               { scale: 1, autoAlpha: 1, duration: 0.62, ease: "power1.inOut" },
