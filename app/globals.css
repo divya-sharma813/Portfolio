@@ -130,9 +130,11 @@ a { color: inherit; }
   width: 100vw;
   height: 84px;
   padding: 24px 32px;
+  border-bottom: 0.5px solid #ebebeb;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background: var(--neutral-0);
   transform: translateX(-50%);
 }
 .wordmark {
