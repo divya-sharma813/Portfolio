@@ -36,6 +36,9 @@ export default function Home() {
   const worldRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLElement>(null);
   const projectsRef = useRef<HTMLElement>(null);
+  const projectsTailRef = useRef<HTMLElement>(null);
+  const projectProgressRef = useRef<HTMLDivElement>(null);
+  const cursorDotRef = useRef<HTMLDivElement>(null);
   const ambientRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -162,6 +165,109 @@ export default function Home() {
     };
   }, []);
 
+  useEffect(() => {
+    const progress = projectProgressRef.current;
+    const journey = journeyRef.current;
+    const tail = projectsTailRef.current;
+    if (!progress || !journey || !tail) return;
+
+    let frame = 0;
+    const updateProgress = () => {
+      frame = 0;
+      const viewportHeight = window.innerHeight;
+      const tailRect = tail.getBoundingClientRect();
+      const tailIsActive = tailRect.top < viewportHeight && tailRect.bottom > 0;
+      const firstProjectIsActive = journey.classList.contains("is-settled") && tailRect.top >= viewportHeight * 0.72;
+      const isVisible = firstProjectIsActive || tailIsActive;
+      let activeProject = 0;
+
+      if (tailIsActive && tailRect.top < viewportHeight * 0.72) {
+        const viewportAnchor = viewportHeight * 0.48;
+        const cards = Array.from(tail.querySelectorAll<HTMLElement>(".project-card"));
+        let closestDistance = Number.POSITIVE_INFINITY;
+
+        cards.forEach((card, index) => {
+          const rect = card.getBoundingClientRect();
+          const distance = Math.abs(rect.top + rect.height / 2 - viewportAnchor);
+          if (distance < closestDistance) {
+            closestDistance = distance;
+            activeProject = index + 1;
+          }
+        });
+      }
+
+      progress.classList.toggle("is-visible", isVisible);
+      progress.style.setProperty("--project-progress", String(activeProject / 3));
+      progress.dataset.step = String(activeProject + 1);
+      progress.setAttribute("aria-valuenow", String(activeProject + 1));
+    };
+
+    const requestUpdate = () => {
+      if (!frame) frame = window.requestAnimationFrame(updateProgress);
+    };
+
+    updateProgress();
+    window.addEventListener("scroll", requestUpdate, { passive: true });
+    window.addEventListener("resize", requestUpdate);
+    return () => {
+      if (frame) window.cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", requestUpdate);
+      window.removeEventListener("resize", requestUpdate);
+    };
+  }, []);
+
+  useEffect(() => {
+    const dot = cursorDotRef.current;
+    const finePointer = window.matchMedia("(pointer: fine)");
+    if (!dot || !finePointer.matches) return;
+
+    const targetSelector = "a, button, [role='button'], [role='link'], .company-card";
+    let targetX = 0;
+    let targetY = 0;
+    let currentX = 0;
+    let currentY = 0;
+    let animationFrame = 0;
+    let hasPosition = false;
+
+    const draw = () => {
+      currentX += (targetX - currentX) * 0.24;
+      currentY += (targetY - currentY) * 0.24;
+      dot.style.left = `${currentX}px`;
+      dot.style.top = `${currentY}px`;
+
+      if (Math.abs(targetX - currentX) > 0.1 || Math.abs(targetY - currentY) > 0.1) {
+        animationFrame = window.requestAnimationFrame(draw);
+      } else {
+        animationFrame = 0;
+      }
+    };
+
+    const handlePointerMove = (event: PointerEvent) => {
+      targetX = event.clientX;
+      targetY = event.clientY;
+      if (!hasPosition) {
+        currentX = targetX;
+        currentY = targetY;
+        hasPosition = true;
+      }
+      const target = event.target instanceof Element ? event.target.closest(targetSelector) : null;
+      document.body.classList.toggle("is-dot-cursor-active", Boolean(target));
+      if (!animationFrame) animationFrame = window.requestAnimationFrame(draw);
+    };
+
+    const hideDot = () => document.body.classList.remove("is-dot-cursor-active");
+
+    document.body.classList.add("has-dot-cursor");
+    window.addEventListener("pointermove", handlePointerMove, { passive: true });
+    document.documentElement.addEventListener("mouseleave", hideDot);
+    return () => {
+      if (animationFrame) window.cancelAnimationFrame(animationFrame);
+      window.removeEventListener("pointermove", handlePointerMove);
+      document.documentElement.removeEventListener("mouseleave", hideDot);
+      document.body.classList.remove("has-dot-cursor", "is-dot-cursor-active");
+    };
+  }, []);
+
   async function copyEmail() {
     await navigator.clipboard.writeText(EMAIL);
     setCopied(true);
@@ -170,6 +276,7 @@ export default function Home() {
 
   return (
     <main>
+      <div className="cursor-dot" ref={cursorDotRef} aria-hidden="true" />
       <section className="immersive-journey" ref={journeyRef} aria-label="Introduction and selected projects">
         <div className="journey-viewport" ref={viewportRef}>
           <div className="journey-ambient" ref={ambientRef} aria-hidden="true" />
@@ -234,14 +341,30 @@ export default function Home() {
                   </div>
                 </article>
 
-                <div className="section-rail" aria-hidden="true"><span /></div>
               </div>
             </section>
           </div>
         </div>
       </section>
 
-      <section className="projects-tail light-grid" aria-label="More selected work">
+      <div
+        className="project-progress"
+        ref={projectProgressRef}
+        role="progressbar"
+        aria-label="Selected work progress"
+        aria-valuemin={1}
+        aria-valuemax={4}
+        aria-valuenow={1}
+        data-step="1"
+      >
+        <span className="project-progress-fill" />
+        <i className="project-progress-marker project-progress-marker--one" />
+        <i className="project-progress-marker project-progress-marker--two" />
+        <i className="project-progress-marker project-progress-marker--three" />
+        <i className="project-progress-marker project-progress-marker--four" />
+      </div>
+
+      <section className="projects-tail light-grid" ref={projectsTailRef} aria-label="More selected work">
         <div className="projects-tail-canvas">
           <article className="project-card project-card--two">
             <div className="project-visual">
