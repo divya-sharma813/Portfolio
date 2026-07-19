@@ -24,13 +24,13 @@
   --status-positive: #42c975;
   --status-positive-deep: #214d32;
 
-  --paper: var(--neutral-0);
+  --paper: #fef5ec;
   --paper-warm: var(--neutral-25);
   --ink: var(--neutral-800);
   --title: var(--neutral-900);
   --muted: var(--neutral-500);
-  --grid-line: rgba(228, 225, 225, 0.36);
-  --grid-size: 56px;
+  --grid-line: rgba(32, 31, 29, 0.1);
+  --grid-size: 60px;
   --grid-stroke: 1px;
   --border: var(--neutral-300);
 
@@ -130,11 +130,10 @@ a { color: inherit; }
   width: 100vw;
   height: 84px;
   padding: 24px 32px;
-  border-bottom: 0.5px solid #ebebeb;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: var(--neutral-0);
+  background: transparent;
   transform: translateX(-50%);
 }
 .wordmark {
