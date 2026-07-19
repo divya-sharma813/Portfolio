@@ -1,4 +1,4 @@
-import { ArrowLeft, ArrowUpRight } from "@phosphor-icons/react/dist/ssr";
+import { ArrowLeft, ArrowUpRight, X } from "@phosphor-icons/react/dist/ssr";
 
 type Project = {
   slug: string;
@@ -8,7 +8,7 @@ type Project = {
   image: string;
   imageAlt: string;
   hero: "galleri" | "firedrops" | "monkey" | "minigames";
-  structure: "editorial" | "notebook";
+  structure: "editorial" | "notebook" | "overlay";
   accent: string;
 };
 
@@ -58,7 +58,7 @@ const projects: Project[] = [
     image: "/assets/project-minigames-visual.png",
     imageAlt: "Spin the Wheel custom minigame screens",
     hero: "minigames",
-    structure: "notebook",
+    structure: "overlay",
     accent: "#4f2371",
   },
 ];
@@ -220,6 +220,83 @@ function NotebookCase({ project }: { project: Project }) {
   );
 }
 
+const overlayStudies = [
+  {
+    number: "01",
+    title: "Playful feedback",
+    description:
+      "A distinct response for every spin, win, and near miss keeps the game easy to read without losing its sense of anticipation.",
+    caption: "Reward reveal and feedback states",
+    tone: "soft",
+  },
+  {
+    number: "02",
+    title: "Familiar rules",
+    description:
+      "The interaction borrows from real-world prize wheels, so players understand what to do without instruction-heavy screens.",
+    caption: "A recognisable interaction model",
+    tone: "dark",
+  },
+  {
+    number: "03",
+    title: "Scalable system",
+    description:
+      "Reusable motion, reward, and result patterns create a foundation for future minigames without redesigning the experience each time.",
+    caption: "One visual language across game formats",
+    tone: "accent",
+  },
+] as const;
+
+function OverlayCase({ project }: { project: Project }) {
+  return (
+    <main className="case-body case-body--overlay">
+      <article className="overlay-sheet" aria-labelledby="overlay-title">
+        <a className="overlay-close" href="/#projects-title" aria-label="Close case study">
+          <X size={22} weight="regular" aria-hidden="true" />
+        </a>
+
+        <div className="overlay-document">
+          <header className="overlay-intro">
+            <p className="case-section-label">A closer look</p>
+            <h2 id="overlay-title">Design principles</h2>
+            <p>
+              This version treats the case study like a working design document. Each principle is paired with the product evidence that brings it to life.
+            </p>
+          </header>
+
+          <div className="overlay-studies">
+            {overlayStudies.map((study) => (
+              <section className="overlay-study" key={study.number}>
+                <div className="overlay-study-copy">
+                  <p className="overlay-study-title">
+                    <span>{study.number}</span>
+                    {study.title}
+                  </p>
+                  <p>{study.description}</p>
+                </div>
+                <figure className={`overlay-visual overlay-visual--${study.tone}`} style={{ "--case-accent": project.accent } as React.CSSProperties}>
+                  <div className="overlay-visual-frame">
+                    <img src={project.image} alt={project.imageAlt} />
+                  </div>
+                  <figcaption>{study.caption}</figcaption>
+                </figure>
+              </section>
+            ))}
+          </div>
+
+          <footer className="overlay-reflection">
+            <p className="case-section-label">Reflection</p>
+            <h2>A playful layer built on a dependable system.</h2>
+            <p>
+              This closing area is ready for the final outcome, launch learnings, and the decisions you would carry into the next game.
+            </p>
+          </footer>
+        </div>
+      </article>
+    </main>
+  );
+}
+
 function OtherWork({ current }: { current: Project }) {
   const others = projects.filter((project) => project.slug !== current.slug).slice(0, 3);
   return (
@@ -250,7 +327,13 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
   return (
     <div className="case-page">
       <CaseHeader project={project} />
-      {project.structure === "editorial" ? <EditorialCase project={project} /> : <NotebookCase project={project} />}
+      {project.structure === "editorial" ? (
+        <EditorialCase project={project} />
+      ) : project.structure === "overlay" ? (
+        <OverlayCase project={project} />
+      ) : (
+        <NotebookCase project={project} />
+      )}
       <OtherWork current={project} />
       <footer className="case-footer">
         <p>Divya Sharma · Product Designer</p>
