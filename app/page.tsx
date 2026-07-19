@@ -278,7 +278,7 @@ export default function Home() {
               <div className="projects-canvas">
                 <div className="projects-title-box"><h2 id="projects-title">Selected Work</h2></div>
 
-                <article className="project-card project-card--one">
+                <a className="project-card project-card--one" href="/work/galleri5-studio" aria-label="Open Galleri5 Studio case study">
                   <div className="project-visual">
                     <img src="/assets/project-ai-video-visual.png" alt="AI video creation workflow screens" />
                   </div>
@@ -286,7 +286,7 @@ export default function Home() {
                     <h3>Making AI video creation easier to follow</h3>
                     <p>Designed a referral experience that encouraged players to invite friends, compete together, and grow Monkey Play during its early launch.</p>
                   </div>
-                </article>
+                </a>
 
               </div>
             </section>
@@ -297,7 +297,7 @@ export default function Home() {
       <section className="projects-tail light-grid" aria-label="More selected work">
         <div className="projects-tail-canvas">
           <div className="project-step">
-            <article className="project-card project-card--two">
+            <a className="project-card project-card--two" href="/work/firedrops" aria-label="Open FireDrops case study">
               <div className="project-visual">
                 <img src="/assets/project-firedrops-visual.png" alt="FireDrops rewards experience screens" />
               </div>
@@ -305,11 +305,11 @@ export default function Home() {
                 <h3>Building a scalable rewards experience</h3>
                 <p>Reimagined FireDrops to improve challenge discovery, engagement, and long-term scalability</p>
               </div>
-            </article>
+            </a>
           </div>
 
           <div className="project-step">
-            <article className="project-card project-card--three">
+            <a className="project-card project-card--three" href="/work/monkey-play" aria-label="Open Monkey Play case study">
               <div className="project-visual">
                 <img src="/assets/project-monkey-play-visual.png" alt="Monkey Play gaming and referral experience screens" />
               </div>
@@ -317,11 +317,11 @@ export default function Home() {
                 <h3>Growing a gaming platform through social play</h3>
                 <p>Designed a referral experience that encouraged players to invite friends, compete together, and grow Monkey Play during its early launch.</p>
               </div>
-            </article>
+            </a>
           </div>
 
           <div className="project-step">
-            <article className="project-card project-card--four">
+            <a className="project-card project-card--four" href="/work/custom-minigames" aria-label="Open Custom Minigames case study">
               <div className="project-visual">
                 <img src="/assets/project-minigames-visual.png" alt="Spin the Wheel custom minigame screens" />
               </div>
@@ -329,7 +329,7 @@ export default function Home() {
                 <h3>Introducing Custom Minigames</h3>
                 <p>I&apos;ll take you through our journey of creating our first mini-game: Spin the Wheel. And set the design language for all the future mini games.</p>
               </div>
-            </article>
+            </a>
           </div>
         </div>
       </section>
