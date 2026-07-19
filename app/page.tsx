@@ -95,6 +95,9 @@ export default function Home() {
               scrub: 1.05,
               anticipatePin: 1,
               invalidateOnRefresh: true,
+              onUpdate: (self) => {
+                journey.classList.toggle("is-settled", self.progress >= 0.94);
+              },
             },
           });
 
@@ -127,16 +130,24 @@ export default function Home() {
               0.2,
             )
             .to(world, {
+              x: 0,
+              y: 0,
               rotationX: 0,
               rotationZ: 0,
               scale: 1,
               duration: 0.3,
               ease: "power2.out",
             })
+            .to(
+              projects,
+              { x: 0, y: 0, scale: 1, autoAlpha: 1, duration: 0.3, ease: "power2.out" },
+              "<",
+            )
             .to(ambient, { autoAlpha: 0.08, duration: 0.3, ease: "power2.out" }, "<");
 
           return () => {
             journey.classList.remove("is-enhanced");
+            journey.classList.remove("is-settled");
           };
         },
       );
@@ -215,7 +226,7 @@ export default function Home() {
 
                 <article className="project-card project-card--one">
                   <div className="project-visual project-visual--firedrops" aria-hidden="true">
-                    <img src="/assets/projects-reference.png" alt="" />
+                    <img src="/assets/project-firedrops-visual.png" alt="" />
                   </div>
                   <div className="project-copy">
                     <h3>Redesigning FireDrops, from a simple</h3>

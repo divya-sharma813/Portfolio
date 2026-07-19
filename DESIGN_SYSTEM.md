@@ -106,6 +106,7 @@ Use a 4px base rhythm: `4, 8, 12, 16, 20, 24, 32, 40, 48, 64, 80, 96`.
 - Scroll lifts the plane to a maximum `5.5°` tilt, travels diagonally toward the lower-left project position, then settles flat again.
 - The transition uses approximately `220vh` of scroll distance with a one-second smoothed scrub.
 - Content remains real HTML; only the shared world, opacity, and scale are animated.
+- Once Selected Work settles, clear the nested 3D transforms so live typography and project imagery return to normal browser rendering instead of remaining on a rasterized animation layer.
 - Keep the ambient wash gradient-based rather than filter-blurred so the notebook plane remains inexpensive to composite.
 - Mobile and reduced-motion experiences use the normal vertical document flow with no pinning or perspective travel.
 
