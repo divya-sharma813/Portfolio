@@ -675,6 +675,10 @@ a { color: inherit; }
   }
 }
 
+@media (min-width: 901px) and (max-height: 760px) {
+  .company-tooltip { top: calc(100% - 18px); }
+}
+
 @media (max-width: 900px) {
   :root { --grid-size: 44px; }
   .hero, .hero-canvas { min-height: 780px; }
