@@ -211,7 +211,7 @@ export default function Home() {
 
             <section className="projects journey-projects light-grid" ref={projectsRef} aria-labelledby="projects-title">
               <div className="projects-canvas">
-                <div className="projects-title-box"><h2 id="projects-title">Selected Projects</h2></div>
+                <div className="projects-title-box"><h2 id="projects-title">Selected Work</h2></div>
 
                 <article className="project-card project-card--one">
                   <div className="project-visual project-visual--firedrops" aria-hidden="true">

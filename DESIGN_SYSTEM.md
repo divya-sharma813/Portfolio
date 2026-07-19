@@ -101,7 +101,7 @@ Use a 4px base rhythm: `4, 8, 12, 16, 20, 24, 32, 40, 48, 64, 80, 96`.
 
 ### Immersive notebook transition
 
-- The Hero and first Selected Project share one notebook plane on desktop.
+- The Hero and first Selected Work card share one notebook plane on desktop.
 - The first viewport must remain a clean, motionless Figma state.
 - Scroll lifts the plane to a maximum `5.5°` tilt, travels diagonally toward the lower-left project position, then settles flat again.
 - The transition uses approximately `220vh` of scroll distance with a one-second smoothed scrub.
@@ -113,11 +113,11 @@ Use a 4px base rhythm: `4, 8, 12, 16, 20, 24, 32, 40, 48, 64, 80, 96`.
 
 ### Section title block
 
-Serif heading inside a thin bordered paper rectangle. It should feel like a label placed on the notebook, not a floating card.
+Serif heading inside a thin bordered paper rectangle. Size and position the block in whole grid cells so no grid line runs through the label. It should feel placed on the notebook, not like a floating card.
 
 ### Project card
 
-Square outer structure, one large image window, then a concise Public Sans title and description. Border changes—not shadows—communicate hover.
+The desktop card uses a `16 × 8` grid-cell footprint (`896 × 448px`), with one large image window followed by a concise Public Sans title and description. Keep the resting border unchanged on hover; a smooth scale to roughly `1.018` communicates interaction.
 
 ### Primary action
 
