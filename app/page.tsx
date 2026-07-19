@@ -296,35 +296,41 @@ export default function Home() {
 
       <section className="projects-tail light-grid" aria-label="More selected work">
         <div className="projects-tail-canvas">
-          <article className="project-card project-card--two">
-            <div className="project-visual">
-              <img src="/assets/project-firedrops-visual.png" alt="FireDrops rewards experience screens" />
-            </div>
-            <div className="project-copy">
-              <h3>Building a scalable rewards experience</h3>
-              <p>Reimagined FireDrops to improve challenge discovery, engagement, and long-term scalability</p>
-            </div>
-          </article>
+          <div className="project-step">
+            <article className="project-card project-card--two">
+              <div className="project-visual">
+                <img src="/assets/project-firedrops-visual.png" alt="FireDrops rewards experience screens" />
+              </div>
+              <div className="project-copy">
+                <h3>Building a scalable rewards experience</h3>
+                <p>Reimagined FireDrops to improve challenge discovery, engagement, and long-term scalability</p>
+              </div>
+            </article>
+          </div>
 
-          <article className="project-card project-card--three">
-            <div className="project-visual">
-              <img src="/assets/project-monkey-play-visual.png" alt="Monkey Play gaming and referral experience screens" />
-            </div>
-            <div className="project-copy">
-              <h3>Growing a gaming platform through social play</h3>
-              <p>Designed a referral experience that encouraged players to invite friends, compete together, and grow Monkey Play during its early launch.</p>
-            </div>
-          </article>
+          <div className="project-step">
+            <article className="project-card project-card--three">
+              <div className="project-visual">
+                <img src="/assets/project-monkey-play-visual.png" alt="Monkey Play gaming and referral experience screens" />
+              </div>
+              <div className="project-copy">
+                <h3>Growing a gaming platform through social play</h3>
+                <p>Designed a referral experience that encouraged players to invite friends, compete together, and grow Monkey Play during its early launch.</p>
+              </div>
+            </article>
+          </div>
 
-          <article className="project-card project-card--four">
-            <div className="project-visual">
-              <img src="/assets/project-minigames-visual.png" alt="Spin the Wheel custom minigame screens" />
-            </div>
-            <div className="project-copy">
-              <h3>Introducing Custom Minigames</h3>
-              <p>I&apos;ll take you through our journey of creating our first mini-game: Spin the Wheel. And set the design language for all the future mini games.</p>
-            </div>
-          </article>
+          <div className="project-step">
+            <article className="project-card project-card--four">
+              <div className="project-visual">
+                <img src="/assets/project-minigames-visual.png" alt="Spin the Wheel custom minigame screens" />
+              </div>
+              <div className="project-copy">
+                <h3>Introducing Custom Minigames</h3>
+                <p>I&apos;ll take you through our journey of creating our first mini-game: Spin the Wheel. And set the design language for all the future mini games.</p>
+              </div>
+            </article>
+          </div>
         </div>
       </section>
 
