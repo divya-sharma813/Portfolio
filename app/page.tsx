@@ -22,7 +22,7 @@ const companies = [
   },
   {
     name: "Galleri5",
-    src: "/assets/company-3.png",
+    src: "/assets/company-gallerie-default.png",
     activeSrc: "/assets/company-gallerie-active.png",
     className: "gallerie",
     summary: "Redesigned an AI creative studio, making complex movie and microdrama creation easier for creators.",
