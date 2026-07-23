@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { headers } from "next/headers";
-import { Cormorant_Garamond, Public_Sans } from "next/font/google";
+import { Cormorant_Garamond, Prata, Public_Sans } from "next/font/google";
 import "./globals.css";
+import ProjectPageTransition from "./ProjectPageTransition";
 
 const publicSans = Public_Sans({
   variable: "--font-public-sans",
@@ -13,6 +14,13 @@ const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
   subsets: ["latin"],
   weight: ["400", "600", "700"],
+  display: "swap",
+});
+
+const prata = Prata({
+  variable: "--font-prata",
+  subsets: ["latin"],
+  weight: "400",
   display: "swap",
 });
 
@@ -57,8 +65,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${publicSans.variable} ${cormorant.variable}`}>
-        {children}
+      <body className={`${publicSans.variable} ${cormorant.variable} ${prata.variable}`}>
+        <ProjectPageTransition>{children}</ProjectPageTransition>
       </body>
     </html>
   );
